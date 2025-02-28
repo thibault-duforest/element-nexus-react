@@ -1,5 +1,18 @@
+@use 'sass:meta';
+
 @use 'assets/css/reset.css';
 @use 'assets/css/normalize.css';
+
+// ATOMS
+@include meta.load-css('../resources/scss/atoms/tags/tags');
+
+// MOLECULES
+
+// ORGANISMS
+
+// TEMPLATES
+
+// PAGES
 
 /**
 * App specific CSS

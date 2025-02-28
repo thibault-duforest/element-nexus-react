@@ -13,8 +13,8 @@ const sidebarNavMenu: NavMenu[] = [
         categoryLabel: 'Atoms',
         items: [
             {
-                to: '/atoms/component3',
-                label: 'Component 3',
+                to: '/atoms/tags',
+                label: 'Tags',
             },
             {
                 to: '/atoms/component4',

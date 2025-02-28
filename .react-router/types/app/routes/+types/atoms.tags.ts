@@ -1,17 +1,17 @@
 // React Router generated types for route:
-// routes/atoms.component3.tsx
+// routes/atoms.tags.tsx
 
 import type * as T from "react-router/route-module"
 
 import type { Info as Parent0 } from "../../+types/root.js"
 
-type Module = typeof import("../atoms.component3.js")
+type Module = typeof import("../atoms.tags.js")
 
 export type Info = {
   parents: [Parent0],
-  id: "routes/atoms.component3"
-  file: "routes/atoms.component3.tsx"
-  path: "atoms/component3"
+  id: "routes/atoms.tags"
+  file: "routes/atoms.tags.tsx"
+  path: "atoms/tags"
   params: {} & { [key: string]: string | undefined }
   module: Module
   loaderData: T.CreateLoaderData<Module>

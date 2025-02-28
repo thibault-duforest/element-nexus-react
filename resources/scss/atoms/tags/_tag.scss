@@ -1,0 +1,57 @@
+@use 'sass:map';
+
+/**
+* Basic tag
+**/
+
+$tag-padding-vertical: 0.25rem;
+$tag-padding-horizontal: 0.5rem;
+$tag-padding: $tag-padding-vertical $tag-padding-horizontal;
+$tag-font-size: 14px;
+$tag-font-size-md: 16px;
+$tag-font-weight: normal;
+$tag-border-radius: 0.3rem;
+$tag-background-color: #d9d9d9;
+$tag-label-color: black;
+$tag-icon-color: black;
+$tag-icon-size: 1rem;
+$tag-link-color-keyboard-focus: #0093ff;
+
+.tag {
+  position: relative;
+  display: inline-block;
+  padding: $tag-padding;
+  border-radius: $tag-border-radius;
+  background-color: $tag-background-color;
+
+  &--with-icon {
+    padding-left: #{$tag-padding-horizontal * 2 + $tag-icon-size};
+  }
+  
+  &:focus-visible {
+    box-shadow: 0px 0px 0px 2px $tag-link-color-keyboard-focus;
+    outline: 2px solid transparent;
+  }
+
+  &__label {
+    color: $tag-label-color;
+    font-size: $tag-font-size-md;
+    font-weight: $tag-font-weight;
+    white-space: nowrap;
+  }
+
+  &__icon {
+    position: absolute;
+    left: $tag-padding-horizontal;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: $tag-icon-color;
+    width: $tag-icon-size;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .toast__label {
+    font-size: $tag-font-size-md;
+  }
+}
