@@ -4,6 +4,7 @@
 @use 'assets/css/normalize.css';
 
 // ATOMS
+@include meta.load-css('../resources/scss/atoms/buttons/buttons');
 @include meta.load-css('../resources/scss/atoms/tags/tags');
 
 // MOLECULES

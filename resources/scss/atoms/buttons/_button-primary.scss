@@ -1,0 +1,22 @@
+@use "sass:color";
+
+$button-primary-color: #fff;
+$button-primary-background-color: #fd8624;
+$button-primary-background-color-hover: color.scale($button-primary-background-color, $lightness: -20%);
+$button-primary-outline-color: color.scale($button-primary-background-color, $lightness: -40%);
+
+.button-primary {
+  background-color: $button-primary-background-color;
+  color: $button-primary-color;
+
+  &:not(:disabled) {
+    &:hover, .pseudo-hover &,
+    &:active, .pseudo-active & {
+      background-color: $button-primary-background-color-hover;
+    }
+  }
+
+  &:focus-visible, .pseudo-focus-visible & {
+    box-shadow: 0 0 0 4px $button-primary-outline-color;
+  }
+}

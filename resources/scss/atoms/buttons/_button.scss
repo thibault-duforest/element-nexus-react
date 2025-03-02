@@ -1,0 +1,67 @@
+@use 'sass:color';
+
+$button-padding-horizontal: 1rem;
+$button-padding-vertical: 0.5rem;
+$button-padding: $button-padding-vertical $button-padding-horizontal;
+$button-background-color: #fff;
+$button-background-color-hover: color.scale($button-background-color, $lightness: -20%);
+$button-background-outline-color: color.scale($button-background-color, $lightness: -40%);
+$button-color-disabled: #fff;
+$button-background-color-disabled: #808080;
+$button-border-radius: 0.5rem;
+
+a.button {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+
+  @media screen and (-ms-high-contrast: active) {
+    border: 2px solid currentcolor;
+  }
+}
+
+[class*="button"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  min-width: 10ch;
+  min-height: 44px;
+  padding: $button-padding;
+  border-radius: $button-border-radius;
+  background: $button-background-color;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.5;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+  &:hover, &.pseudo-hover {
+    outline-style: solid;
+    outline-color: transparent;
+  }
+
+  &:not(:disabled) {
+    &:hover, .pseudo-hover &,
+    &:active, .pseudo-active & {
+      background-color: $button-background-color-hover;
+    }
+  }
+
+  &:focus-visible, .pseudo-focus-visible & {
+    box-shadow: 0 0 0 4px $button-background-outline-color;
+  }
+
+  &:disabled {
+    color: $button-color-disabled;
+    background-color: $button-background-color-disabled;
+  }
+
+  + [class*="button"] {
+    margin-left: 1rem;
+  }
+}
