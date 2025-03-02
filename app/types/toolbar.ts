@@ -5,3 +5,15 @@ export enum ViewPortMode {
     MOBILE_LARGE,
     MOBILE_SMALL,
 }
+
+export enum PseudoClasses {
+    HOVER_FOCUS,
+    ACTIVE,
+    VISITED,
+    FOCUS_VISIBLE,
+    FOCUS_WITHIN,
+}
+
+export type ActivePseudoClasses = {
+    [key in PseudoClasses]: boolean
+}

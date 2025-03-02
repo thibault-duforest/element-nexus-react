@@ -2,7 +2,7 @@ import { useState } from 'react'
 import classNames from 'classnames'
 
 import stylesheet from '../app.scss?url'
-import { ViewPortMode } from '../types/toolbar'
+import { ViewPortMode, PseudoClasses } from '../types/toolbar'
 import Toolbar from '../components/toolbar'
 import FunctionalIFrameComponent from '../components/functionnalIFrame'
 
@@ -18,9 +18,29 @@ const MainContent = ({ children }: { children: React.ReactNode }) => {
     setViewportMode(mode)
   }
 
+  const onTogglePseudoClass = (pseudoClass: PseudoClasses) => {
+    switch (pseudoClass) {
+      case PseudoClasses.HOVER_FOCUS:
+        setIsHoverFocusPseudoClassActive(!isHoverFocusPseudoClassActive)
+        break
+      case PseudoClasses.ACTIVE:
+        setIsActivePseudoClassActive(!isActivePseudoClassActive)
+        break
+      case PseudoClasses.VISITED:
+        setIsVisitedPseudoClassActive(!isVisitedPseudoClassActive)
+        break
+      case PseudoClasses.FOCUS_VISIBLE:
+        setIsFocusVisiblePseudoClassActive(!isFocusVisiblePseudoClassActive)
+        break
+      case PseudoClasses.FOCUS_WITHIN:
+        setIsFocusWithinPseudoClassActive(!isFocusWithinPseudoClassActive)
+        break
+    }
+  }
+
   return (
     <>
-      <Toolbar onViewportChange={onSwitchViewport} />
+      <Toolbar onViewportChange={onSwitchViewport} onTogglePseudoClass={onTogglePseudoClass} />
       <div className="bg-slate-300 h-[calc(100%-104px)]">
         <link data-frame type="text/css" rel="stylesheet" href={stylesheet} />
         <FunctionalIFrameComponent
