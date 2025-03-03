@@ -2,11 +2,13 @@ import { useState } from 'react'
 import classNames from 'classnames'
 
 import stylesheet from '../app.scss?url'
-import { ViewPortMode, PseudoClasses } from '../types/toolbar'
+import { ViewPortMode, PseudoClasses, BackgroundMode } from '../types/toolbar'
+import { useToolbar } from '../hooks/useToolbar'
 import Toolbar from '../components/toolbar'
 import FunctionalIFrameComponent from '../components/functionnalIFrame'
 
 const MainContent = ({ children }: { children: React.ReactNode }) => {
+  const { backgroundMode, setBackgroundMode } = useToolbar()
   const [viewportMode, setViewportMode] = useState<ViewPortMode>(ViewPortMode.DESKTOP)
   const [isHoverFocusPseudoClassActive, setIsHoverFocusPseudoClassActive] = useState<boolean>(false)
   const [isActivePseudoClassActive, setIsActivePseudoClassActive] = useState<boolean>(false)
@@ -38,9 +40,19 @@ const MainContent = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
+  const onToggleBackgroundMode = (isDarkMode: boolean) => {
+    const mode = isDarkMode ? BackgroundMode.DARK : BackgroundMode.LIGHT
+
+    setBackgroundMode(mode)
+  }
+
   return (
     <>
-      <Toolbar onViewportChange={onSwitchViewport} onTogglePseudoClass={onTogglePseudoClass} />
+      <Toolbar
+        onViewportChange={onSwitchViewport}
+        onTogglePseudoClass={onTogglePseudoClass}
+        onToggleBackgroundMode={onToggleBackgroundMode}
+      />
       <div className="bg-slate-300 h-[calc(100%-104px)]">
         <link data-frame type="text/css" rel="stylesheet" href={stylesheet} />
         <FunctionalIFrameComponent
@@ -55,6 +67,8 @@ const MainContent = ({ children }: { children: React.ReactNode }) => {
         >
           <div
             className={`transition-colors duration-200 p-4 h-full md:overflow-y-scroll ${classNames({
+              'bg-white': backgroundMode === BackgroundMode.LIGHT,
+              'bg-black': backgroundMode === BackgroundMode.DARK,
               'pseudo-hover pseudo-focus': isHoverFocusPseudoClassActive,
               'pseudo-active': isActivePseudoClassActive,
               'pseudo-visited': isVisitedPseudoClassActive,

@@ -3,6 +3,7 @@ import { useLocation } from 'react-router'
 
 import type { Route } from './+types/root'
 import stylesheet from './app.scss?url'
+import ToolBarProvider from './providers/ToolBarProvider'
 import SidebarNavigation from './components/sidebarNavigation'
 import MainContent from './components/mainContent'
 
@@ -36,7 +37,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="wrapper grid gap-4">
           <SidebarNavigation />
           <main className="container mx-auto mt-16">
-            {location.pathname === '/' ? children : <MainContent>{children}</MainContent>}
+            {location.pathname === '/' ? (
+              children
+            ) : (
+              <ToolBarProvider>
+                <MainContent>{children}</MainContent>
+              </ToolBarProvider>
+            )}
           </main>
         </div>
         <ScrollRestoration />

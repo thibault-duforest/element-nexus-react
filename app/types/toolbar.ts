@@ -17,3 +17,8 @@ export enum PseudoClasses {
 export type ActivePseudoClasses = {
     [key in PseudoClasses]: boolean
 }
+
+export enum BackgroundMode {
+    LIGHT,
+    DARK,
+}
