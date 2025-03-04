@@ -7,7 +7,7 @@ import { useToolbar } from '../hooks/useToolbar'
 import Toolbar from '../components/toolbar'
 import FunctionalIFrameComponent from '../components/functionnalIFrame'
 
-const MainContent = ({ children }: { children: React.ReactNode }) => {
+const MainContent = ({ children, onFullscreenView }: { children: React.ReactNode; onFullscreenView: () => void }) => {
   const { backgroundMode, setBackgroundMode } = useToolbar()
   const [viewportMode, setViewportMode] = useState<ViewPortMode>(ViewPortMode.DESKTOP)
   const [isHoverFocusPseudoClassActive, setIsHoverFocusPseudoClassActive] = useState<boolean>(false)
@@ -52,6 +52,7 @@ const MainContent = ({ children }: { children: React.ReactNode }) => {
         onViewportChange={onSwitchViewport}
         onTogglePseudoClass={onTogglePseudoClass}
         onToggleBackgroundMode={onToggleBackgroundMode}
+        onToggleFullscreen={onFullscreenView}
       />
       <div className="bg-slate-300 h-[calc(100%-104px)]">
         <link data-frame type="text/css" rel="stylesheet" href={stylesheet} />

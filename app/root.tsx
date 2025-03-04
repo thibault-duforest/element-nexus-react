@@ -1,11 +1,15 @@
+import { useState } from 'react'
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 import { useLocation } from 'react-router'
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
 import type { Route } from './+types/root'
 import stylesheet from './app.scss?url'
 import ToolBarProvider from './providers/ToolBarProvider'
 import SidebarNavigation from './components/sidebarNavigation'
 import MainContent from './components/mainContent'
+import iconShrinkscreen from './medias/svg/shrinkscreen.svg'
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -23,6 +27,7 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation()
+  const [isFullscreenView, setIsFullscreenView] = useState<boolean>(false)
 
   return (
     <html lang="en">
@@ -34,18 +39,35 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <div className="wrapper grid gap-4">
-          <SidebarNavigation />
-          <main className="container mx-auto mt-16">
-            {location.pathname === '/' ? (
-              children
-            ) : (
-              <ToolBarProvider>
-                <MainContent>{children}</MainContent>
-              </ToolBarProvider>
-            )}
-          </main>
-        </div>
+        {isFullscreenView ? (
+          <div className="fullscreen-view p-4">
+            {children}
+            <button
+              type="button"
+              className="bg-slate-200 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded shrink-button"
+              onClick={() => setIsFullscreenView(false)}
+              data-tooltip-id="shrinkScreen"
+              data-tooltip-content="Back to classic view"
+              data-tooltip-place="top"
+            >
+              <img className="block w-4 h-4" src={iconShrinkscreen} alt="Return to classic view" />
+            </button>
+            <Tooltip id="shrinkScreen" />
+          </div>
+        ) : (
+          <div className="wrapper grid gap-4">
+            <SidebarNavigation />
+            <main className="container mx-auto mt-16">
+              {location.pathname === '/' ? (
+                children
+              ) : (
+                <ToolBarProvider>
+                  <MainContent onFullscreenView={() => setIsFullscreenView(true)}>{children}</MainContent>
+                </ToolBarProvider>
+              )}
+            </main>
+          </div>
+        )}
         <ScrollRestoration />
         <Scripts />
       </body>

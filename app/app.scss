@@ -45,3 +45,17 @@ body {
 .sidebar nav ul {
   list-style-type: none;
 }
+
+.fullscreen-view {
+  @apply relative min-h-screen;
+
+  .shrink-button {
+    @apply fixed bottom-4 left-4 min-w-px;
+  }
+}
+
+// Change img svg icon color
+// Keep it for reference
+// .some-icon {
+//   filter: invert(.5) sepia(1) saturate(3) hue-rotate(85deg);
+// }

@@ -13,6 +13,7 @@ import iconMobile from '../medias/svg/mobile.svg'
 import iconCheckmark from '../medias/svg/checkmark.svg'
 import iconSun from '../medias/svg/sun.svg'
 import iconMoon from '../medias/svg/moon.svg'
+import iconFullscreen from '../medias/svg/fullscreen.svg'
 
 const ToolbarIcon = ({
   icon,
@@ -52,10 +53,12 @@ const Toolbar = ({
   onViewportChange,
   onTogglePseudoClass,
   onToggleBackgroundMode,
+  onToggleFullscreen,
 }: {
   onViewportChange: (mode: ViewPortMode) => void
   onTogglePseudoClass: (pseudoClass: PseudoClasses) => void
   onToggleBackgroundMode: (isDarkMode: boolean) => void
+  onToggleFullscreen: () => void
 }) => {
   const [viewport, setViewport] = useState<ViewPortMode>(ViewPortMode.DESKTOP)
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
@@ -87,6 +90,10 @@ const Toolbar = ({
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode)
+  }
+
+  const toggleFullscreen = () => {
+    onToggleFullscreen()
   }
 
   useEffect(() => {
@@ -273,6 +280,18 @@ const Toolbar = ({
           </div>
           <div>
             <button
+              onClick={toggleFullscreen}
+              className={`p-2 rounded-lg transition-colors duration-200 ${
+                isDarkMode ? 'text-yellow-400 hover:bg-gray-700' : 'text-gray-600 hover:bg-gray-100'
+              }`}
+              aria-label="Switch to Fullscreen view"
+              data-tooltip-id="fullscreenView"
+              data-tooltip-content={`Switch to fullscreen view`}
+              data-tooltip-place="bottom"
+            >
+              <ToolbarIcon icon={iconFullscreen} alt={'Switch to fullscreen'} isDarkMode={isDarkMode} />
+            </button>
+            <button
               onClick={toggleDarkMode}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 isDarkMode ? 'text-yellow-400 hover:bg-gray-700' : 'text-gray-600 hover:bg-gray-100'
@@ -296,6 +315,7 @@ const Toolbar = ({
       <Tooltip id="viewportTablet" />
       <Tooltip id="viewportMobile" />
       <Tooltip id="backgroundMode" />
+      <Tooltip id="fullscreenView" />
     </div>
   )
 }
