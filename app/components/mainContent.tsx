@@ -3,11 +3,14 @@ import classNames from 'classnames'
 
 import stylesheet from '../app.scss?url'
 import { ViewPortMode, PseudoClasses, BackgroundMode } from '../types/toolbar'
+import { usePageTitle } from '../hooks/usePageTitle'
 import { useToolbar } from '../hooks/useToolbar'
+import ContentHeader from '../components/contentHeader'
 import Toolbar from '../components/toolbar'
 import FunctionalIFrameComponent from '../components/functionnalIFrame'
 
 const MainContent = ({ children, onFullscreenView }: { children: React.ReactNode; onFullscreenView: () => void }) => {
+  const { title } = usePageTitle()
   const { backgroundMode, setBackgroundMode } = useToolbar()
   const [viewportMode, setViewportMode] = useState<ViewPortMode>(ViewPortMode.DESKTOP)
   const [isHoverFocusPseudoClassActive, setIsHoverFocusPseudoClassActive] = useState<boolean>(false)
@@ -48,6 +51,7 @@ const MainContent = ({ children, onFullscreenView }: { children: React.ReactNode
 
   return (
     <>
+      {!!title && <ContentHeader title={title} />}
       <Toolbar
         onViewportChange={onSwitchViewport}
         onTogglePseudoClass={onTogglePseudoClass}

@@ -1,10 +1,19 @@
+import { useEffect } from 'react'
+
 import type { Route } from './+types/atoms.tags'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: 'ODS CSS - Tags info' }, { name: 'description', content: 'ODS CSS Tag info component' }]
 }
 
 export default function TagInfo() {
+  const { setTitle } = usePageTitle()
+
+  useEffect(() => {
+    setTitle('Tags')
+  }, [])
+
   return (
     <>
       <div className="grid gap-4 md:grid-cols-2">

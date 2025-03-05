@@ -6,6 +6,7 @@ import { Tooltip } from 'react-tooltip'
 
 import type { Route } from './+types/root'
 import stylesheet from './app.scss?url'
+import TitleProvider from './providers/TitleProvider'
 import ToolBarProvider from './providers/ToolBarProvider'
 import SidebarNavigation from './components/sidebarNavigation'
 import MainContent from './components/mainContent'
@@ -61,9 +62,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
               {location.pathname === '/' ? (
                 children
               ) : (
-                <ToolBarProvider>
-                  <MainContent onFullscreenView={() => setIsFullscreenView(true)}>{children}</MainContent>
-                </ToolBarProvider>
+                <TitleProvider>
+                  <ToolBarProvider>
+                    <MainContent onFullscreenView={() => setIsFullscreenView(true)}>{children}</MainContent>
+                  </ToolBarProvider>
+                </TitleProvider>
               )}
             </main>
           </div>

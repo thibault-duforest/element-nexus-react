@@ -1,13 +1,21 @@
+import { useEffect } from 'react'
+
 import type { Route } from './+types/atoms.buttons'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: 'ODS CSS - Buttons' }, { name: 'description', content: 'ODS CSS Button component' }]
 }
 
 export default function Buttons() {
+  const { setTitle } = usePageTitle()
+
+  useEffect(() => {
+    setTitle('Buttons')
+  }, [])
+
   return (
     <>
-      <h1 className="text-3xl font-bold mb-4 border-b border-solid border-slate-500">Buttons</h1>
       <h2 className="text-xl font-bold mb-4">Primary buttons</h2>
       <div className="mb-2">
         <a href="#" className="mb-4 button button-primary" onClick={e => e.preventDefault()}>
