@@ -1,5 +1,5 @@
 {
-  "name": "react-integrator-library",
+  "name": "element-nexus-react",
   "version": "0.0.1",
   "type": "module",
   "private": false,
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:thibault-duforest/react-integrator-library.git"
+    "url": "git@github.com:thibault-duforest/element-nexus-react.git"
   },
   "dependencies": {
     "@react-router/fs-routes": "^7.2.0",

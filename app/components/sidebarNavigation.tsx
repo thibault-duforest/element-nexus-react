@@ -68,7 +68,7 @@ const SidebarNavigation = () => {
       <div className="px-4 py-6">
         <div className="text-center">
           <Link to="/" className="inline-block">
-            <span className="inline-block mt-4 font-bold">Design System components</span>
+            <span className="inline-block mt-4 font-bold">Element Nexus</span>
           </Link>
         </div>
 
