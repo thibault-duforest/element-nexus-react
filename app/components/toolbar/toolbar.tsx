@@ -5,36 +5,16 @@ import type { ActivePseudoClasses } from '../../types/toolbar'
 import { ViewPortMode, PseudoClasses } from '../../types/toolbar'
 import { TooltipPosition } from '../../types/tooltip'
 import { countTruthyValues } from '../../utils/main'
+import { ToolbarButton, ToolbarButtonDarkLightMode } from './toolbarButtons'
+import PseudoClassMenuItem from './pseudoClassMenuItem'
 import iconPseudoClass from '../../medias/svg/pseudo_class.svg'
 import iconDesktop from '../../medias/svg/desktop.svg'
 import iconTablet from '../../medias/svg/tablet.svg'
 import iconMobileLarge from '../../medias/svg/mobile_large.svg'
 import iconMobile from '../../medias/svg/mobile.svg'
-import iconCheckmark from '../../medias/svg/checkmark.svg'
 import iconSun from '../../medias/svg/sun.svg'
 import iconMoon from '../../medias/svg/moon.svg'
 import iconFullscreen from '../../medias/svg/fullscreen.svg'
-import { ToolbarButton, ToolbarButtonDarkLightMode } from './toolbarButtons'
-
-const PseudoClassMenuItem = ({
-  label,
-  isActive,
-  onClick,
-}: {
-  label: string
-  isActive: boolean
-  onClick: () => void
-}) => (
-  <button
-    onClick={onClick}
-    className={`group flex items-center mb-1 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full${
-      isActive ? ' bg-gray-200 hover:bg-gray-200' : ''
-    }`}
-  >
-    <span className={`flex-1 text-left${isActive ? '' : ' pr-8'}`}>{label}</span>
-    {isActive && <img className="block w-4 h-4 ml-4" src={iconCheckmark} />}
-  </button>
-)
 
 const Toolbar = ({
   onViewportChange,
