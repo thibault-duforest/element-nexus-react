@@ -1,3 +1,6 @@
+import type { RefObject } from "react"
+import type { TooltipPosition } from "./tooltip"
+
 export enum ViewPortMode {
     DESKTOP,
     TABLET_LANDSCAPE,
@@ -22,3 +25,14 @@ export enum BackgroundMode {
     LIGHT,
     DARK,
 }
+
+export interface ToolBarButton {
+  onClickFunc: () => void
+  isDarkMode: boolean
+  svgIconPath: string
+  hint: string
+  hintPosition: TooltipPosition
+  ref?: RefObject<HTMLButtonElement | null>
+}
+
+export interface ToolBarButtonDarkLightMode extends Omit<ToolBarButton, 'svgIconPath'> {}
