@@ -9,7 +9,7 @@ import stylesheet from './app.scss?url'
 import TitleProvider from './providers/TitleProvider'
 import ToolBarProvider from './providers/ToolBarProvider'
 import SidebarNavigation from './components/sidebarNavigation'
-import MainContent from './components/mainContent'
+import MainContent from './views/components'
 import iconShrinkscreen from './medias/svg/shrinkscreen.svg'
 
 export const links: Route.LinksFunction = () => [

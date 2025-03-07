@@ -1,10 +1,10 @@
 import type { Route } from './+types/_index'
-import Welcome from '../components/welcome'
+import Home from '../views/home'
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: 'Element Nexus' }, { name: 'description', content: 'Showcase for html/css components' }]
 }
 
-export default function Home() {
-  return <Welcome />
+export default function Index() {
+  return <Home />
 }
