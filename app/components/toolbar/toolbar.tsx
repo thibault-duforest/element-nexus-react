@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { Tooltip } from 'react-tooltip'
 
 import type { ActivePseudoClasses } from '../../types/toolbar'
 import { ViewPortMode, PseudoClasses } from '../../types/toolbar'
