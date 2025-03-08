@@ -1,6 +1,6 @@
 import type { RefObject } from "react"
 import type { TooltipPosition } from "./tooltip"
-import type { IconName, IconSize } from './icon'
+import type { IconName } from './icon'
 
 export enum ViewPortMode {
     DESKTOP,
