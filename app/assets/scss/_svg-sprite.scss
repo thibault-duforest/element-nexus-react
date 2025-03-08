@@ -1,0 +1,227 @@
+@use "sass:math";
+
+$size-small: .75;
+$size-medium: 1.333;
+$size-large: 2;
+
+[class*="svg-sprite"]:before {
+    content: '';
+    display: inline-block;
+    background-image: url('/app/assets/svg/svg-sprite.svg');
+    background-repeat: no-repeat;
+    background-size: 24px 240px;
+    vertical-align: middle;
+}
+
+.svg-sprite-checkmark:before {
+    width: 24px;
+    height: 24px;
+    background-position: 0px 0px;
+}
+.svg-sprite-desktop:before {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -24px;
+}
+.svg-sprite-fullscreen:before {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -48px;
+}
+.svg-sprite-mobile:before {
+    width: 18px;
+    height: 24px;
+    background-position: 0px -72px;
+}
+.svg-sprite-mobile_large:before {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -96px;
+}
+.svg-sprite-moon:before {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -120px;
+}
+.svg-sprite-pseudo_class:before {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -144px;
+}
+.svg-sprite-shrinkscreen:before {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -168px;
+}
+.svg-sprite-sun:before {
+    width: 22px;
+    height: 24px;
+    background-position: 0px -192px;
+}
+.svg-sprite-tablet:before {
+    width: 22px;
+    height: 24px;
+    background-position: 0px -216px;
+}
+
+[class*="svg-sprite-small"]:before {
+    background-size: math.round(calc(24px * $size-small)) math.round(calc(240px * $size-small));
+}
+[class*="svg-sprite-medium"]:before {
+    background-size: math.round(calc(24px * $size-medium)) math.round(calc(240px * $size-medium));
+}
+[class*="svg-sprite-large"]:before {
+    background-size: math.round(calc(24px * $size-large)) math.round(calc(240px * $size-large));
+}
+ .svg-sprite-small-checkmark:before {
+    width: math.round(calc(24px * $size-small));
+    height: math.round(calc(24px * $size-small));
+    background-position: math.round(calc(0px * $size-small)) math.round(calc(0px * $size-small));
+}
+.svg-sprite-small-desktop:before {
+    width: math.round(calc(24px * $size-small));
+    height: math.round(calc(24px * $size-small));
+    background-position: math.round(calc(0px * $size-small)) math.round(calc(-24px * $size-small));
+}
+.svg-sprite-small-fullscreen:before {
+    width: math.round(calc(24px * $size-small));
+    height: math.round(calc(24px * $size-small));
+    background-position: math.round(calc(0px * $size-small)) math.round(calc(-48px * $size-small));
+}
+.svg-sprite-small-mobile:before {
+    width: math.round(calc(18px * $size-small));
+    height: math.round(calc(24px * $size-small));
+    background-position: math.round(calc(0px * $size-small)) math.round(calc(-72px * $size-small));
+}
+.svg-sprite-small-mobile_large:before {
+    width: math.round(calc(24px * $size-small));
+    height: math.round(calc(24px * $size-small));
+    background-position: math.round(calc(0px * $size-small)) math.round(calc(-96px * $size-small));
+}
+.svg-sprite-small-moon:before {
+    width: math.round(calc(24px * $size-small));
+    height: math.round(calc(24px * $size-small));
+    background-position: math.round(calc(0px * $size-small)) math.round(calc(-120px * $size-small));
+}
+.svg-sprite-small-pseudo_class:before {
+    width: math.round(calc(24px * $size-small));
+    height: math.round(calc(24px * $size-small));
+    background-position: math.round(calc(0px * $size-small)) math.round(calc(-144px * $size-small));
+}
+.svg-sprite-small-shrinkscreen:before {
+    width: math.round(calc(24px * $size-small));
+    height: math.round(calc(24px * $size-small));
+    background-position: math.round(calc(0px * $size-small)) math.round(calc(-168px * $size-small));
+}
+.svg-sprite-small-sun:before {
+    width: math.round(calc(22px * $size-small));
+    height: math.round(calc(24px * $size-small));
+    background-position: math.round(calc(0px * $size-small)) math.round(calc(-192px * $size-small));
+}
+.svg-sprite-small-tablet:before {
+    width: math.round(calc(22px * $size-small));
+    height: math.round(calc(24px * $size-small));
+    background-position: math.round(calc(0px * $size-small)) math.round(calc(-216px * $size-small));
+}
+
+.svg-sprite-medium-checkmark:before {
+    width: math.round(calc(24px * $size-medium));
+    height: math.round(calc(24px * $size-medium));
+    background-position: math.round(calc(0px * $size-medium)) math.round(calc(0px * $size-medium));
+}
+.svg-sprite-medium-desktop:before {
+    width: math.round(calc(24px * $size-medium));
+    height: math.round(calc(24px * $size-medium));
+    background-position: math.round(calc(0px * $size-medium)) math.round(calc(-24px * $size-medium));
+}
+.svg-sprite-medium-fullscreen:before {
+    width: math.round(calc(24px * $size-medium));
+    height: math.round(calc(24px * $size-medium));
+    background-position: math.round(calc(0px * $size-medium)) math.round(calc(-48px * $size-medium));
+}
+.svg-sprite-medium-mobile:before {
+    width: math.round(calc(18px * $size-medium));
+    height: math.round(calc(24px * $size-medium));
+    background-position: math.round(calc(0px * $size-medium)) math.round(calc(-72px * $size-medium));
+}
+.svg-sprite-medium-mobile_large:before {
+    width: math.round(calc(24px * $size-medium));
+    height: math.round(calc(24px * $size-medium));
+    background-position: math.round(calc(0px * $size-medium)) math.round(calc(-96px * $size-medium));
+}
+.svg-sprite-medium-moon:before {
+    width: math.round(calc(24px * $size-medium));
+    height: math.round(calc(24px * $size-medium));
+    background-position: math.round(calc(0px * $size-medium)) math.round(calc(-120px * $size-medium));
+}
+.svg-sprite-medium-pseudo_class:before {
+    width: math.round(calc(24px * $size-medium));
+    height: math.round(calc(24px * $size-medium));
+    background-position: math.round(calc(0px * $size-medium)) math.round(calc(-144px * $size-medium));
+}
+.svg-sprite-medium-shrinkscreen:before {
+    width: math.round(calc(24px * $size-medium));
+    height: math.round(calc(24px * $size-medium));
+    background-position: math.round(calc(0px * $size-medium)) math.round(calc(-168px * $size-medium));
+}
+.svg-sprite-medium-sun:before {
+    width: math.round(calc(22px * $size-medium));
+    height: math.round(calc(24px * $size-medium));
+    background-position: math.round(calc(0px * $size-medium)) math.round(calc(-192px * $size-medium));
+}
+.svg-sprite-medium-tablet:before {
+    width: math.round(calc(22px * $size-medium));
+    height: math.round(calc(24px * $size-medium));
+    background-position: math.round(calc(0px * $size-medium)) math.round(calc(-216px * $size-medium));
+}
+
+.svg-sprite-large-checkmark:before {
+    width: math.round(calc(24px * $size-large));
+    height: math.round(calc(24px * $size-large));
+    background-position: math.round(calc(0px * $size-large)) math.round(calc(0px * $size-large));
+}
+.svg-sprite-large-desktop:before {
+    width: math.round(calc(24px * $size-large));
+    height: math.round(calc(24px * $size-large));
+    background-position: math.round(calc(0px * $size-large)) math.round(calc(-24px * $size-large));
+}
+.svg-sprite-large-fullscreen:before {
+    width: math.round(calc(24px * $size-large));
+    height: math.round(calc(24px * $size-large));
+    background-position: math.round(calc(0px * $size-large)) math.round(calc(-48px * $size-large));
+}
+.svg-sprite-large-mobile:before {
+    width: math.round(calc(18px * $size-large));
+    height: math.round(calc(24px * $size-large));
+    background-position: math.round(calc(0px * $size-large)) math.round(calc(-72px * $size-large));
+}
+.svg-sprite-large-mobile_large:before {
+    width: math.round(calc(24px * $size-large));
+    height: math.round(calc(24px * $size-large));
+    background-position: math.round(calc(0px * $size-large)) math.round(calc(-96px * $size-large));
+}
+.svg-sprite-large-moon:before {
+    width: math.round(calc(24px * $size-large));
+    height: math.round(calc(24px * $size-large));
+    background-position: math.round(calc(0px * $size-large)) math.round(calc(-120px * $size-large));
+}
+.svg-sprite-large-pseudo_class:before {
+    width: math.round(calc(24px * $size-large));
+    height: math.round(calc(24px * $size-large));
+    background-position: math.round(calc(0px * $size-large)) math.round(calc(-144px * $size-large));
+}
+.svg-sprite-large-shrinkscreen:before {
+    width: math.round(calc(24px * $size-large));
+    height: math.round(calc(24px * $size-large));
+    background-position: math.round(calc(0px * $size-large)) math.round(calc(-168px * $size-large));
+}
+.svg-sprite-large-sun:before {
+    width: math.round(calc(22px * $size-large));
+    height: math.round(calc(24px * $size-large));
+    background-position: math.round(calc(0px * $size-large)) math.round(calc(-192px * $size-large));
+}
+.svg-sprite-large-tablet:before {
+    width: math.round(calc(22px * $size-large));
+    height: math.round(calc(24px * $size-large));
+    background-position: math.round(calc(0px * $size-large)) math.round(calc(-216px * $size-large));
+}

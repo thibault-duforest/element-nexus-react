@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import classNames from 'classnames'
 
-import stylesheet from '../app.scss?url'
+import stylesheet from '../assets/scss/app.scss?url'
 import { ViewPortMode, PseudoClasses, BackgroundMode } from '../types/toolbar'
 import { usePageTitle } from '../hooks/usePageTitle'
 import { useToolbar } from '../hooks/useToolbar'

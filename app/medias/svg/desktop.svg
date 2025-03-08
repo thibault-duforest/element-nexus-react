@@ -1,4 +1,4 @@
-<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-        d="M10 14v4m-4 1h8M1 10h18M2 1h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z"></path>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+<path fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="4" d="M 10 14.000651 L 10 18.001302 M 5.999349 19.000651 L 14.000651 19.000651 M 0.999349 10 L 19.000651 10 M 1.998698 0.999349 L 18.001302 0.999349 C 18.551432 0.999349 19.000651 1.448568 19.000651 1.998698 L 19.000651 13.001302 C 19.000651 13.551432 18.551432 14.000651 18.001302 14.000651 L 1.998698 14.000651 C 1.448568 14.000651 0.999349 13.551432 0.999349 13.001302 L 0.999349 1.998698 C 0.999349 1.448568 1.448568 0.999349 1.998698 0.999349 Z M 1.998698 0.999349 " transform="matrix(1.2, 0, 0, 1.2, 0, 0)"/>
 </svg>

@@ -5,7 +5,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 
 import type { Route } from './+types/root'
-import stylesheet from './app.scss?url'
+import stylesheet from './assets/scss/app.scss?url'
 import TitleProvider from './providers/TitleProvider'
 import ToolBarProvider from './providers/ToolBarProvider'
 import SidebarNavigation from './components/sidebarNavigation'

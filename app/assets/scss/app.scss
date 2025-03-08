@@ -1,11 +1,12 @@
 @use 'sass:meta';
 
-@use 'assets/css/reset.css';
-@use 'assets/css/normalize.css';
+@use '../css/reset.css';
+@use '../css/normalize.css';
+@use './svg-sprite';
 
 // ATOMS
-@include meta.load-css('../resources/scss/atoms/buttons/buttons');
-@include meta.load-css('../resources/scss/atoms/tags/tags');
+@include meta.load-css('../../../resources/scss/atoms/buttons/buttons');
+@include meta.load-css('../../../resources/scss/atoms/tags/tags');
 
 // MOLECULES
 

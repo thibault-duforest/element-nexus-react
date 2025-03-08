@@ -3,17 +3,10 @@ import { useEffect, useRef, useState } from 'react'
 import type { ActivePseudoClasses } from '../../types/toolbar'
 import { ViewPortMode, PseudoClasses } from '../../types/toolbar'
 import { TooltipPosition } from '../../types/tooltip'
+import { IconName } from '../../types/icon'
 import { countTruthyValues } from '../../utils/main'
 import { ToolbarButton, ToolbarButtonDarkLightMode } from './toolbarButtons'
 import PseudoClassMenuItem from './pseudoClassMenuItem'
-import iconPseudoClass from '../../medias/svg/pseudo_class.svg'
-import iconDesktop from '../../medias/svg/desktop.svg'
-import iconTablet from '../../medias/svg/tablet.svg'
-import iconMobileLarge from '../../medias/svg/mobile_large.svg'
-import iconMobile from '../../medias/svg/mobile.svg'
-import iconSun from '../../medias/svg/sun.svg'
-import iconMoon from '../../medias/svg/moon.svg'
-import iconFullscreen from '../../medias/svg/fullscreen.svg'
 
 const Toolbar = ({
   onViewportChange,
@@ -100,7 +93,7 @@ const Toolbar = ({
                 ref={pseudoClassButtonRef}
                 onClickFunc={() => setIsPseudoClassPopoverOpen(!isPseudoClassPopoverOpen)}
                 isDarkMode={isDarkMode}
-                svgIconPath={iconPseudoClass}
+                iconName={IconName.PSEUDO_CLASS}
                 hint="Toggle pseudo classes"
                 hintPosition={TooltipPosition.BOTTOM}
               />
@@ -149,14 +142,15 @@ const Toolbar = ({
             <ToolbarButton
               onClickFunc={() => handleViewportChange(ViewPortMode.DESKTOP)}
               isDarkMode={isDarkMode}
-              svgIconPath={iconDesktop}
+              iconName={IconName.DESKTOP}
               hint="Desktop View"
               hintPosition={TooltipPosition.BOTTOM}
             />
             <ToolbarButton
               onClickFunc={() => handleViewportChange(ViewPortMode.TABLET_LANDSCAPE)}
               isDarkMode={isDarkMode}
-              svgIconPath={iconTablet}
+              iconName={IconName.TABLET}
+              rotateIcon
               hint="Tablet landscape view"
               hintPosition={TooltipPosition.BOTTOM}
             />
@@ -164,21 +158,21 @@ const Toolbar = ({
               ref={pseudoClassButtonRef}
               onClickFunc={() => handleViewportChange(ViewPortMode.TABLET_PORTRAIT)}
               isDarkMode={isDarkMode}
-              svgIconPath={iconTablet}
+              iconName={IconName.TABLET}
               hint="Tablet portrait View"
               hintPosition={TooltipPosition.BOTTOM}
             />
             <ToolbarButton
               onClickFunc={() => handleViewportChange(ViewPortMode.MOBILE_LARGE)}
               isDarkMode={isDarkMode}
-              svgIconPath={iconMobileLarge}
+              iconName={IconName.MOBILE_LARGE}
               hint="Large mobile view"
               hintPosition={TooltipPosition.BOTTOM}
             />
             <ToolbarButton
               onClickFunc={() => handleViewportChange(ViewPortMode.MOBILE_SMALL)}
               isDarkMode={isDarkMode}
-              svgIconPath={iconMobile}
+              iconName={IconName.MOBILE}
               hint="Small mobile view"
               hintPosition={TooltipPosition.BOTTOM}
             />
@@ -187,7 +181,7 @@ const Toolbar = ({
             <ToolbarButton
               onClickFunc={toggleFullscreen}
               isDarkMode={isDarkMode}
-              svgIconPath={iconFullscreen}
+              iconName={IconName.FULLSCREEN}
               hint="Switch to fullscreen view"
               hintPosition={TooltipPosition.BOTTOM}
             />
@@ -198,8 +192,8 @@ const Toolbar = ({
                 hint: `Toggle ${isDarkMode ? 'light' : 'dark'} mode`,
                 hintPosition: TooltipPosition.BOTTOM,
               }}
-              lighSVGPath={iconSun}
-              darkSVGPath={iconMoon}
+              lightSVGName={IconName.SUN}
+              darkSVGName={IconName.MOON}
             />
           </div>
         </div>

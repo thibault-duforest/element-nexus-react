@@ -1,23 +1,11 @@
 import { Tooltip } from 'react-tooltip'
 import uniqid from 'uniqid'
+import classNames from 'classnames'
 
 import type { ToolBarButton, ToolBarButtonDarkLightMode } from '../../types/toolbar'
+import { IconName } from '../../types/icon'
 
-const ToolbarIcon = ({
-  icon,
-  alt,
-  classes,
-  isDarkMode,
-}: {
-  icon: string
-  alt: string
-  classes?: string
-  isDarkMode: boolean
-}) => (
-  <img className={`block w-4 h-4${isDarkMode ? ' invert' : ''}${classes ? ` ${classes}` : ''}`} src={icon} alt={alt} />
-)
-
-const ToolbarButton = ({ onClickFunc, isDarkMode, svgIconPath, hint, hintPosition, ref }: ToolBarButton) => {
+const ToolbarButton = ({ onClickFunc, isDarkMode, iconName, rotateIcon, hint, hintPosition, ref }: ToolBarButton) => {
   const tooltipId = `tooltip-${uniqid()}`
 
   return (
@@ -25,14 +13,18 @@ const ToolbarButton = ({ onClickFunc, isDarkMode, svgIconPath, hint, hintPositio
       <button
         ref={ref}
         onClick={onClickFunc}
-        className={`p-2 rounded-lg transition-colors duration-200 hover:bg-gray-100 text-gray-800${
-          isDarkMode ? 'text-gray-400 hover:bg-gray-700' : 'text-gray-600 hover:bg-gray-100'
-        }`}
+        className={`p-2 rounded-lg transition-colors duration-200
+          svg-sprite-small-${iconName}
+          ${classNames({
+            'text-gray-400 hover:bg-gray-700 invert': isDarkMode,
+            'text-gray-600 hover:bg-gray-100': !isDarkMode,
+            'rotate-90': rotateIcon,
+          })}`}
         data-tooltip-id={tooltipId}
         data-tooltip-content={hint}
         data-tooltip-place={hintPosition}
       >
-        <ToolbarIcon icon={svgIconPath} alt={'Toggle pseudo classes'} isDarkMode={isDarkMode} />
+        <span className="invisible text-[0]">{hint}</span>
       </button>
       <Tooltip id={tooltipId} />
     </>
@@ -41,14 +33,16 @@ const ToolbarButton = ({ onClickFunc, isDarkMode, svgIconPath, hint, hintPositio
 
 const ToolbarButtonDarkLightMode = ({
   toolbarButtonParams,
-  lighSVGPath,
-  darkSVGPath,
+  lightSVGName,
+  darkSVGName,
 }: {
   toolbarButtonParams: ToolBarButtonDarkLightMode
-  lighSVGPath: string
-  darkSVGPath: string
-}) => (
-  <ToolbarButton {...toolbarButtonParams} svgIconPath={toolbarButtonParams.isDarkMode ? darkSVGPath : lighSVGPath} />
-)
+  lightSVGName: IconName
+  darkSVGName: IconName
+}) => {
+  const { isDarkMode } = toolbarButtonParams
+
+  return <ToolbarButton {...toolbarButtonParams} iconName={isDarkMode ? darkSVGName : lightSVGName} />
+}
 
 export { ToolbarButton, ToolbarButtonDarkLightMode }

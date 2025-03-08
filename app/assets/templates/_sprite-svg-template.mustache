@@ -1,0 +1,63 @@
+@use "sass:math";
+
+{{!
+For an image of base 24px
+small    => 18px
+medium   => 32px
+large    => 48px
+}}
+$size-small: .75;
+$size-medium: 1.333;
+$size-large: 2;
+
+{{!-- https://github.com/jkphl/svg-sprite/blob/master/docs/templating.md --}}
+[class*="svg-sprite"]:before {
+    content: '';
+    display: inline-block;
+    background-image: url('/app/assets/svg/{{sprite}}');
+    background-repeat: no-repeat;
+    background-size: {{spriteWidth}}px {{spriteHeight}}px;
+    vertical-align: middle;
+}
+
+{{#shapes}}
+.svg-sprite-{{base}}:before {
+    width: {{width.inner}}px;
+    height: {{height.inner}}px;
+    background-position: {{position.absolute.x}}px {{position.absolute.y}}px;
+}
+{{/shapes}}
+
+[class*="svg-sprite-small"]:before {
+    background-size: math.round(calc({{spriteWidth}}px * $size-small)) math.round(calc({{spriteHeight}}px * $size-small));
+}
+[class*="svg-sprite-medium"]:before {
+    background-size: math.round(calc({{spriteWidth}}px * $size-medium)) math.round(calc({{spriteHeight}}px * $size-medium));
+}
+[class*="svg-sprite-large"]:before {
+    background-size: math.round(calc({{spriteWidth}}px * $size-large)) math.round(calc({{spriteHeight}}px * $size-large));
+}
+// Remove newlines
+{{#shapes}}
+.svg-sprite-small-{{base}}:before {
+    width: math.round(calc({{width.inner}}px * $size-small));
+    height: math.round(calc({{height.inner}}px * $size-small));
+    background-position: math.round(calc({{position.absolute.x}}px * $size-small)) math.round(calc({{position.absolute.y}}px * $size-small));
+}
+{{/shapes}}
+
+{{#shapes}}
+.svg-sprite-medium-{{base}}:before {
+    width: math.round(calc({{width.inner}}px * $size-medium));
+    height: math.round(calc({{height.inner}}px * $size-medium));
+    background-position: math.round(calc({{position.absolute.x}}px * $size-medium)) math.round(calc({{position.absolute.y}}px * $size-medium));
+}
+{{/shapes}}
+
+{{#shapes}}
+.svg-sprite-large-{{base}}:before {
+    width: math.round(calc({{width.inner}}px * $size-large));
+    height: math.round(calc({{height.inner}}px * $size-large));
+    background-position: math.round(calc({{position.absolute.x}}px * $size-large)) math.round(calc({{position.absolute.y}}px * $size-large));
+}
+{{/shapes}}
