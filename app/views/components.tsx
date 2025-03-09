@@ -18,6 +18,7 @@ const ComponentsView = ({
 }) => {
   const { title } = usePageTitle()
   const { backgroundMode, setBackgroundMode } = useToolbar()
+  const [iFrameBodyElement, setIFrameBodyElement] = useState<HTMLElement | null>(null)
   const [viewportMode, setViewportMode] = useState<ViewPortMode>(ViewPortMode.DESKTOP)
   const [isHoverFocusPseudoClassActive, setIsHoverFocusPseudoClassActive] = useState<boolean>(false)
   const [isActivePseudoClassActive, setIsActivePseudoClassActive] = useState<boolean>(false)
@@ -63,10 +64,12 @@ const ComponentsView = ({
         onTogglePseudoClass={onTogglePseudoClass}
         onToggleBackgroundMode={onToggleBackgroundMode}
         onToggleFullscreen={onFullscreenView}
+        iFrameBodyElement={iFrameBodyElement}
       />
       <div className="bg-slate-300 h-[calc(100%-104px)]">
         <link data-frame type="text/css" rel="stylesheet" href={stylesheet} />
         <FunctionalIFrameComponent
+          onIFrameMount={mountNode => setIFrameBodyElement(mountNode)}
           classes={`mx-auto h-full ${classNames({
             'w-full': viewportMode === ViewPortMode.DESKTOP,
             'w-[1024px]': viewportMode === ViewPortMode.TABLET_LANDSCAPE,

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import type { ActivePseudoClasses } from '../../types/toolbar'
-import { ViewPortMode, PseudoClasses } from '../../types/toolbar'
+import { ViewPortMode, PseudoClasses, type ActivePseudoClasses } from '../../types/toolbar'
 import { TooltipPosition } from '../../types/tooltip'
 import { IconName } from '../../types/icon'
 import { countTruthyValues } from '../../utils/main'
@@ -13,11 +12,13 @@ const Toolbar = ({
   onTogglePseudoClass,
   onToggleBackgroundMode,
   onToggleFullscreen,
+  iFrameBodyElement,
 }: {
   onViewportChange: (mode: ViewPortMode) => void
   onTogglePseudoClass: (pseudoClass: PseudoClasses) => void
   onToggleBackgroundMode: (isDarkMode: boolean) => void
   onToggleFullscreen: () => void
+  iFrameBodyElement: HTMLElement | null
 }) => {
   const [viewport, setViewport] = useState<ViewPortMode>(ViewPortMode.DESKTOP)
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
@@ -70,8 +71,13 @@ const Toolbar = ({
     }
 
     document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+    iFrameBodyElement?.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      iFrameBodyElement?.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [iFrameBodyElement])
 
   useEffect(() => {
     setActivePseudoClassCount(countTruthyValues(isPseudoClassActive))

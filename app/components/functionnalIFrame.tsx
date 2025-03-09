@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type RefObject } from 'react'
 import { createPortal } from 'react-dom'
 
 const FunctionalIFrame = ({
   children,
   styleSelector,
+  onIFrameMount,
   classes,
   ...props
 }: {
   children: React.ReactNode
   styleSelector: string
+  onIFrameMount: (mountNode: HTMLElement) => void
   classes?: string
   props?: any
 }) => {
@@ -29,6 +31,12 @@ const FunctionalIFrame = ({
       })
     }
   }, [contentRef, styleSelector])
+
+  useEffect(() => {
+    if (mountNode) {
+      onIFrameMount(mountNode)
+    }
+  }, [mountNode])
 
   return (
     <iframe className={classes} {...props} ref={setContentRef}>
