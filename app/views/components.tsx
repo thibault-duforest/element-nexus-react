@@ -9,7 +9,13 @@ import ContentHeader from '../components/contentHeader'
 import Toolbar from '../components/toolbar/toolbar'
 import FunctionalIFrameComponent from '../components/functionnalIFrame'
 
-const MainContent = ({ children, onFullscreenView }: { children: React.ReactNode; onFullscreenView: () => void }) => {
+const ComponentsView = ({
+  children,
+  onFullscreenView,
+}: {
+  children: React.ReactNode
+  onFullscreenView: () => void
+}) => {
   const { title } = usePageTitle()
   const { backgroundMode, setBackgroundMode } = useToolbar()
   const [viewportMode, setViewportMode] = useState<ViewPortMode>(ViewPortMode.DESKTOP)
@@ -89,4 +95,4 @@ const MainContent = ({ children, onFullscreenView }: { children: React.ReactNode
   )
 }
 
-export default MainContent
+export default ComponentsView

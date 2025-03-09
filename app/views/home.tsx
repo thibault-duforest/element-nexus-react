@@ -1,4 +1,4 @@
-const Home = () => {
+const HomeView = () => {
   return (
     <div className="mx-auto max-w-xl mt-16">
       <h1 className="text-xl font-bold text-center">Welcome to Element Nexus!</h1>
@@ -17,4 +17,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomeView
