@@ -8,7 +8,7 @@ import type { Route } from './+types/root'
 import stylesheet from './assets/scss/app.scss?url'
 import TitleProvider from './providers/TitleProvider'
 import ToolBarProvider from './providers/ToolBarProvider'
-import SidebarNavigation from './components/sidebarNavigation'
+import SidebarNavigation from './components/sidebar/sidebarNavigation'
 import MainContent from './views/components'
 import iconShrinkscreen from './medias/svg/shrinkscreen.svg'
 
