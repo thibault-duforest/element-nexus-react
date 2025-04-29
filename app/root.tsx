@@ -35,7 +35,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png" href="../public/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../public/favicon.ico" />
+        <link rel="icon" type="image/png" href="../public/favicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="../public/favicon-48x48.png" />
         <Meta />
         <Links />
       </head>
