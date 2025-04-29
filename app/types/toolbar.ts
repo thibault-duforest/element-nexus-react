@@ -2,6 +2,11 @@ import type { RefObject } from "react"
 import type { TooltipPosition } from "./tooltip"
 import type { IconName } from './icon'
 
+export type Toolbar = {
+    backgroundMode: BackgroundMode
+    setBackgroundMode: (c: BackgroundMode) => void
+}
+
 export enum ViewPortMode {
     DESKTOP,
     TABLET_LANDSCAPE,
@@ -28,13 +33,13 @@ export enum BackgroundMode {
 }
 
 export interface ToolBarButton {
-  onClickFunc: () => void
-  isDarkMode: boolean
-  iconName: IconName
-  rotateIcon?: boolean
-  hint: string
-  hintPosition: TooltipPosition
-  ref?: RefObject<HTMLButtonElement | null>
+    onClickFunc: () => void
+    isDarkMode: boolean
+    iconName: IconName
+    rotateIcon?: boolean
+    hint: string
+    hintPosition: TooltipPosition
+    ref?: RefObject<HTMLButtonElement | null>
 }
 
-export interface ToolBarButtonDarkLightMode extends Omit<ToolBarButton, 'iconName'> {}
+export interface ToolBarButtonDarkLightMode extends Omit<ToolBarButton, 'iconName'> { }
