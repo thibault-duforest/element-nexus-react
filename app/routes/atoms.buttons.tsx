@@ -3,8 +3,9 @@ import { useEffect } from 'react'
 import type { Route } from './+types/atoms.buttons'
 import { usePageTitle } from '../hooks/usePageTitle'
 
-export function meta({}: Route.MetaArgs) {
-  return [{ title: 'ODS CSS - Buttons' }, { name: 'description', content: 'ODS CSS Button component' }]
+export function meta(data: Route.MetaArgs) {
+  console.log(data)
+  return [{ title: 'Buttons - Element Nexus - React' }, { name: 'description', content: 'Button component' }]
 }
 
 export default function Buttons() {
