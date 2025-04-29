@@ -3,8 +3,7 @@ import { useEffect } from 'react'
 import type { Route } from './+types/atoms.buttons'
 import { usePageTitle } from '../hooks/usePageTitle'
 
-export function meta(data: Route.MetaArgs) {
-  console.log(data)
+export function meta({}: Route.MetaArgs) {
   return [{ title: 'Buttons - Element Nexus - React' }, { name: 'description', content: 'Button component' }]
 }
 
